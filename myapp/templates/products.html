@@ -1,0 +1,74 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- top Products -->
+<div class="ads-grid">
+	<div class="container">
+		<!-- tittle heading -->
+		<h3 class="tittle-w3l">Products
+			<span class="heading-style">
+				<i></i>
+				<i></i>
+				<i></i>
+			</span>
+		</h3>
+		<!-- //tittle heading -->
+		<!-- product right -->
+		<div class="agileinfo-ads-display col-md-12 w3l-rightpro">
+			<div class="wrapper">
+				<!-- first section -->
+				<div class="product-sec1">
+					{% for item in productlist %}
+					<div class="col-xs-4 product-men" style="margin-top:50px">
+						<div class="men-pro-item simpleCart_shelfItem">
+							<div class="men-thumb-item">
+								<img src="{{item.pic.url}}" width="232" height="200" alt="">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="{% url 'single' item.id %}" class="link-product-add-cart">Quick View</a>
+									</div>
+								</div>
+								<span class="product-new-top">New</span>
+							</div>
+							<div class="item-info-product ">
+								<h4>
+									<a href="{% url 'single' item.id %}">{{item.name}}</a>
+								</h4>
+								<div class="info-product-price">
+									<span class="item_price">₹{{item.price}}</span>
+									<del>₹{{item.price}}</del>
+								</div>
+								<div
+									class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+									<form action="#" method="post">
+										<fieldset>
+											<input type="hidden" name="cmd" value="_cart" />
+											<input type="hidden" name="add" value="1" />
+											<input type="hidden" name="business" value=" " />
+											<input type="hidden" name="item_name" value="Zeeba Basmati Rice - 5 KG" />
+											<input type="hidden" name="amount" value="950.00" />
+											<input type="hidden" name="discount_amount" value="1.00" />
+											<input type="hidden" name="currency_code" value="USD" />
+											<input type="hidden" name="return" value=" " />
+											<input type="hidden" name="cancel_return" value=" " />
+											<input type="submit" name="submit" value="Add to cart" class="button" />
+										</fieldset>
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+					<div class="clearfix"></div>
+				</div>
+				<!-- //first section -->
+			</div>
+		</div>
+		<!-- //product right -->
+	</div>
+</div>
+<!-- //top products -->
+{% endblock %}

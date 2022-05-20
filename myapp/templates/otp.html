@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>{{msg}}</p>
+    <form method="post" action="{% url 'otp' %}">
+        {% csrf_token %}
+        Enter OTP: <input type="text" name="otp">
+        <input type="submit" value="Verify OTP">
+        <input type="hidden" placeholder="" name="hiddenotp" value="{{otp}}" required="">
+        <input type="hidden" placeholder="" name="name" value="{{name}}" required="">
+        <input type="hidden" placeholder="" name="email" value="{{email}}" required="">
+        <input type="hidden" placeholder="" name="password" value="{{password}}" required="">
+    </form>
+</body>
+
+</html>
